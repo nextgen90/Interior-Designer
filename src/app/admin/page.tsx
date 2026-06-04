@@ -97,7 +97,10 @@ export default async function AdminDashboard() {
 
             <div className={styles.addExpenseCard}>
               <h3>Add New Expense</h3>
-              <form action={addExpense} className={styles.expenseForm}>
+              <form action={async (formData) => {
+                "use server";
+                await addExpense(formData);
+              }} className={styles.expenseForm}>
                 <input type="text" name="description" placeholder="Description (e.g. Office Supplies)" required />
                 <input type="number" name="amount" placeholder="Amount" step="0.01" required />
                 <select name="category" required>
