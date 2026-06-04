@@ -1,0 +1,167 @@
+.heroContainer {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+.slideImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.4) 50%, rgba(10,10,10,0.1) 100%);
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem;
+  padding-top: 5rem; /* Account for navbar */
+}
+
+.label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--primary-gold);
+  margin-bottom: 2rem;
+}
+
+.content h1 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  max-width: 900px;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #ccc;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.primaryBtn {
+  background-color: var(--primary-gold);
+  color: #000;
+  padding: 1rem 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.primaryBtn:hover {
+  background-color: #e2c050;
+  transform: translateX(5px);
+}
+
+.secondaryBtn {
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.secondaryBtn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: rgba(255,255,255,0.3);
+  transition: background-color 0.3s ease;
+}
+
+.secondaryBtn:hover::after {
+  background-color: var(--primary-gold);
+}
+
+.navigation {
+  position: absolute;
+  bottom: 4rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.progressContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.progressBar {
+  width: 40px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--primary-gold);
+}
+
+@keyframes progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.progressBar.active .progressFill {
+  animation-name: progress;
+  animation-timing-function: linear;
+}
+
+.counter {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .navigation {
+    bottom: 2rem;
+  }
+}

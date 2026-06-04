@@ -1,0 +1,94 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.selectBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--dark-surface-border, #333);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  user-select: none;
+}
+
+.selectBox:hover {
+  border-color: rgba(212, 175, 55, 0.5); /* gold hint */
+}
+
+.selectBox.open {
+  border-color: var(--primary-gold, #d4af37);
+}
+
+.placeholder {
+  color: #999;
+}
+
+.selected {
+  color: var(--foreground, #fff);
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  color: #999;
+}
+
+.arrowOpen {
+  transform: rotate(180deg);
+  color: var(--primary-gold, #d4af37);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background-color: var(--dark-surface, #111);
+  border: 1px solid var(--primary-gold, #d4af37);
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+/* Custom scrollbar for dropdown */
+.dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 4px;
+}
+
+.dropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.6);
+}
+
+.option {
+  padding: 0.75rem 1rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option:hover {
+  background-color: rgba(212, 175, 55, 0.1);
+  color: var(--primary-gold, #d4af37);
+}
+
+.activeOption {
+  background-color: rgba(212, 175, 55, 0.2);
+  color: var(--primary-gold, #d4af37);
+  font-weight: 500;
+}

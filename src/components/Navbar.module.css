@@ -1,0 +1,154 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all 0.3s ease;
+  padding: 1.5rem 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+}
+
+.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logoMark {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--primary-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-playfair), serif;
+  font-size: 1.5rem;
+  color: var(--primary-gold);
+  transform: rotate(45deg);
+}
+
+.logoMark::after {
+  content: "A";
+  transform: rotate(-45deg);
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+}
+
+.subBrand {
+  font-size: 0.7rem;
+  color: var(--primary-gold);
+  letter-spacing: 0.2em;
+}
+
+.nav {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav a {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: #ccc;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary-gold);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--foreground);
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.bookBtn {
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bookBtn:hover {
+  background-color: var(--primary-gold-dim);
+  border-color: var(--primary-gold);
+}
+
+.mobileMenuBtn {
+  display: none;
+  color: var(--foreground);
+}
+
+@media (max-width: 992px) {
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--dark-surface);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--dark-surface-border);
+  }
+
+  .navOpen {
+    display: flex;
+  }
+
+  .bookBtn {
+    display: none;
+  }
+
+  .mobileMenuBtn {
+    display: block;
+  }
+}
