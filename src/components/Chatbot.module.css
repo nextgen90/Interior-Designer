@@ -180,8 +180,8 @@
 @media (max-width: 480px) {
   .chatWindow {
     width: calc(100vw - 2rem);
-    height: calc(100vh - 6rem);
-    bottom: 5rem;
+    height: 420px;
+    bottom: 5.5rem;
     right: 1rem;
     border-radius: 12px;
     z-index: 9999;
