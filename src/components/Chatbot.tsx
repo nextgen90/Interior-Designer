@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { MessageSquare, X, Send } from "lucide-react";
+import { MessageSquare, X, Send, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./Chatbot.module.css";
 
@@ -55,11 +55,10 @@ export default function Chatbot() {
   return (
     <>
       <button 
-        className={styles.toggleBtn} 
-        onClick={() => setIsOpen(true)}
-        style={{ display: isOpen ? 'none' : 'flex' }}
+        className={`${styles.toggleBtn} ${isOpen ? styles.toggleBtnOpen : ''}`} 
+        onClick={() => setIsOpen(!isOpen)}
       >
-        <MessageSquare size={24} />
+        {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
       </button>
 
       <AnimatePresence>
@@ -72,7 +71,9 @@ export default function Chatbot() {
             transition={{ duration: 0.3 }}
           >
             <div className={styles.header}>
-              <div className={styles.headerTitle}>Atelier Concierge</div>
+              <div className={styles.headerTitle}>
+                <Sparkles size={18} /> Atelier Concierge
+              </div>
               <button onClick={() => setIsOpen(false)} className={styles.closeBtn}>
                 <X size={20} />
               </button>
@@ -103,7 +104,7 @@ export default function Chatbot() {
                 type="text"
                 value={input}
                 onChange={e => setInput(e.target.value)}
-                placeholder="Type your message..."
+                placeholder="Ask about our services..."
                 className={styles.input}
               />
               <button type="submit" className={styles.sendBtn} disabled={loading || !input.trim()}>
