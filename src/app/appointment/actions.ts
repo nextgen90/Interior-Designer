@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 export async function submitAppointment(formData: FormData) {
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
+  const phone = formData.get("phone") as string | null;
   const service = formData.get("service") as string;
   const date = formData.get("date") as string;
   const time = formData.get("time") as string;
@@ -22,6 +23,7 @@ export async function submitAppointment(formData: FormData) {
       data: {
         name,
         email,
+        phone,
         service,
         date,
         time,

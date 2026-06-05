@@ -51,6 +51,7 @@ export default async function AdminDashboard() {
                       <td>
                         <div className={styles.primaryText}>{app.name}</div>
                         <div className={styles.secondaryText}>{app.email}</div>
+                        {app.phone && <div className={styles.secondaryText}>{app.phone}</div>}
                       </td>
                       <td>{app.service}</td>
                       <td>

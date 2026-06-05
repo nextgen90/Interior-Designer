@@ -85,6 +85,11 @@ export default function AppointmentPage() {
             </div>
 
             <div className={styles.formGroup}>
+              <label htmlFor="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" />
+            </div>
+
+            <div className={styles.formGroup}>
               <label htmlFor="service">Service of Interest</label>
               <CustomSelect 
                 key={`service-${formKey}`}

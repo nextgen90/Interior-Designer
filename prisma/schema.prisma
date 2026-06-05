@@ -11,6 +11,7 @@ model Appointment {
   id        String   @id @default(uuid())
   name      String
   email     String
+  phone     String?
   service   String
   date      String
   time      String
