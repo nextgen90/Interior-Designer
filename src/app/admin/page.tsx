@@ -4,6 +4,8 @@ import { updateAppointmentStatus, addExpense } from "./actions";
 import styles from "./admin.module.css";
 import { revalidatePath } from "next/cache";
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboard() {
   // Fetch data
   const appointments = await prisma.appointment.findMany({
